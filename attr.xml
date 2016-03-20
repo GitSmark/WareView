@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WareView">
+        <attr name="WareColor" format="reference|color"></attr>
+        <attr name="WareImage" format="reference|color"></attr>
+    </declare-styleable>
+</resources>
