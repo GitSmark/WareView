@@ -83,7 +83,11 @@ public class WareView extends ViewGroup {
         this.context = context;
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.WareView);
         WareImage = typedArray.getResourceId(R.styleable.WareView_WareImage, WareImage);
-        WareColor = typedArray.getResourceId(R.styleable.WareView_WareColor, WareColor);
+        //WareColor = typedArray.getResourceId(R.styleable.WareView_WareColor, WareColor);
+        int clcor = typedArray.getResourceId(R.styleable.WareView_WareColor, -1);
+        if ( clcor != -1){
+            WareColor = getResources().getColor(clcor);
+        }
         init();
     }
 
@@ -475,7 +479,8 @@ public class WareView extends ViewGroup {
 
     // 设置水波颜色
     public void setColor(int color) {
-        paint.setColor(color);
+        WareColor = color;
+        paint.setColor(WareColor);
     }
 
     // 开始(继续)
