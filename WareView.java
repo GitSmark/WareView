@@ -166,7 +166,11 @@ public class WareView extends ViewGroup {
 
     private class SeismicWaveView extends View{
 
-        private int maxWidth = 255;
+        private int alphaSize = 255;
+        private int maxWidth = (alphaSize<WareArea+WareRadius)?DensityUtil.dip2px(context, alphaSize):alphaSize;
+        int radius = maxWidth/alphaSize;
+        
+        //private int maxWidth = 255;
         private List<String> alphaList = new ArrayList<String>();
         private List<String> startWidthList = new ArrayList<String>();
 
@@ -206,7 +210,8 @@ public class WareView extends ViewGroup {
                 if (isStarting && alpha > 0 && startWidth < maxWidth)
                 {
                     alphaList.set(i, (alpha-1)+"");
-                    startWidthList.set(i, (startWidth+1)+"");
+                    startWidthList.set(i, (startWidth+radius)+"");
+                    //startWidthList.set(i, (startWidth+1)+"");
                 }
             }
             if (isStarting&&Integer.parseInt(startWidthList.get(startWidthList.size() - 1)) == maxWidth / 5) {
